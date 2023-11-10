@@ -37,7 +37,7 @@ public class UnitTest1
         var array = new int[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33};
 
         // Act
-        var list = uniqueInts.GetUniqueIntegersAlternative(array);
+        var list = uniqueInts.GetSortedUniqueIntegers(array);
 
         // Assert
         Assert.Equal("-32,1,7,8,9,10,33,45", string.Join(",", list));

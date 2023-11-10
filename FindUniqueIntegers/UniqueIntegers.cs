@@ -25,7 +25,7 @@ public class UniqueIntegers
         return uniqueInts;
     }
 
-    public List<int> GetUniqueIntegersAlternative(int[] array) {
+    public List<int> GetSortedUniqueIntegers(int[] array) {
         var uniqueInts = new List<int>();
 
         Array.Sort(array);
