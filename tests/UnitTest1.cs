@@ -15,31 +15,33 @@ public class UnitTest1
        The list is just the same number repeated many times
     */
 
-    [Fact]
-    public void CanReturnListOfUniqueIntegers()
+    [Theory]
+    [InlineData(new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, "1,10,7,8,45,-32,9,33")]
+    [InlineData(new[] {17, 5, 25, 26, 0, 8}, "17,5,25,26,0,8")]
+    public void CanReturnListOfUniqueIntegers(int[] array, string expected)
     {
         // Arrange
         var uniqueInts = new UniqueIntegers();
-        var array = new int[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33};
 
         // Act
         var list = uniqueInts.GetUniqueIntegers(array);
 
         // Assert
-        Assert.Equal("1,10,7,8,45,-32,9,33", string.Join(",", list));
+        Assert.Equal(expected, string.Join(",", list));
     }
 
-    [Fact]
-    public void CanReturnSortedListOfUniqueIntegers()
+    [Theory]
+    [InlineData(new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, "-32,1,7,8,9,10,33,45")]
+    [InlineData(new[] {6,-2,1,3,-42,85,-140}, "-140,-42,-2,1,3,6,85")]
+    public void CanReturnSortedListOfUniqueIntegers(int[] array, string expected)
     {
         // Arrange
         var uniqueInts = new UniqueIntegers();
-        var array = new int[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33};
 
         // Act
         var list = uniqueInts.GetSortedUniqueIntegers(array);
 
         // Assert
-        Assert.Equal("-32,1,7,8,9,10,33,45", string.Join(",", list));
+        Assert.Equal(expected, string.Join(",", list));
     }
 }
