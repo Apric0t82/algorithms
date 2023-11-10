@@ -3,7 +3,17 @@
 public class Program {
 
     public static void Main() {
-        var arr = new int[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33};
+        
+        Console.WriteLine("Enter array of integer numbers separated by ',':");
+        var value = Console.ReadLine();
+
+        int[] arr;
+        try {
+            arr = value?.Split(',').Select(int.Parse).ToArray() ?? Array.Empty<int>();
+        } catch {
+            Console.WriteLine("Error!");
+            return;
+        }
         
         var uniqueInts = new UniqueIntegers();
         Console.WriteLine(string.Join(", ", uniqueInts.GetUniqueIntegers(arr)));
