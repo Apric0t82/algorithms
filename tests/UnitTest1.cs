@@ -15,6 +15,18 @@ public class UnitTest1
        The list is just the same number repeated many times
     */
 
+    [Fact]
+    public void TestListIsEmpty(){
+        // Arrange
+        var uniqueInts = new UniqueIntegers();
+
+        // Act
+        var list = uniqueInts.GetUniqueIntegers(Array.Empty<int>());
+
+        // Assert
+        Assert.Empty(list);
+    }
+
     [Theory]
     [InlineData(new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, "1,10,7,8,45,-32,9,33")]
     [InlineData(new[] {17, 5, 25, 26, 0, 8}, "17,5,25,26,0,8")]
