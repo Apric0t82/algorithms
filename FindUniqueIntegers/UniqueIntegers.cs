@@ -25,6 +25,26 @@ public class UniqueIntegers
         return uniqueInts;
     }
 
+    public List<int> GetHashSetOfUniqueIntegers(int[] array) {
+        
+        var duplicates = new List<int>();
+
+        HashSet<int> set = array.TryGetNonEnumeratedCount(out var count) 
+                            ? new(count) 
+                            : new();
+
+        foreach (var number in array)
+        {
+            if (!set.Add(number)){
+                duplicates.Add(number);
+            }
+        }
+
+        var uniqueInts = array.Except(duplicates).ToList();
+
+        return uniqueInts;
+    }
+
     public List<int> GetSortedUniqueIntegers(int[] array) {
         var uniqueInts = new List<int>();
 

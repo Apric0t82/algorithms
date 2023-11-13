@@ -30,6 +30,21 @@ public class UnitTest1
     [Theory]
     [InlineData(new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, "1,10,7,8,45,-32,9,33")]
     [InlineData(new[] {17, 5, 25, 26, 0, 8}, "17,5,25,26,0,8")]
+    public void CanReturnHashSetOfUniqueIntegers(int[] array, string expected)
+    {
+        // Arrange
+        var uniqueInts = new UniqueIntegers();
+
+        // Act
+        var list = uniqueInts.GetHashSetOfUniqueIntegers(array);
+
+        // Assert
+        Assert.Equal(expected, string.Join(",", list));
+    }
+
+    [Theory]
+    [InlineData(new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, "1,10,7,8,45,-32,9,33")]
+    [InlineData(new[] {17, 5, 25, 26, 0, 8}, "17,5,25,26,0,8")]
     public void CanReturnListOfUniqueIntegers(int[] array, string expected)
     {
         // Arrange
