@@ -2,7 +2,7 @@
 
 public class UniqueIntegers
 {
-    public List<int> GetUniqueIntegers(int[] array) {
+    public static List<int> WithDictionary(int[] array) {
         var frequencyDict = new Dictionary<int, int>();
         var uniqueInts = new List<int>();
 
@@ -25,7 +25,7 @@ public class UniqueIntegers
         return uniqueInts;
     }
 
-    public List<int> GetHashSetOfUniqueIntegers(int[] array) {
+    public static List<int> WithExceptingDuplicatesHashSet(int[] array) {
         
         var duplicates = new List<int>();
 
@@ -35,7 +35,7 @@ public class UniqueIntegers
 
         foreach (var number in array)
         {
-            if (!set.Add(number)){
+            if (!set.Add(number)) {
                 duplicates.Add(number);
             }
         }
@@ -45,7 +45,7 @@ public class UniqueIntegers
         return uniqueInts;
     }
 
-    public List<int> GetSortedUniqueIntegers(int[] array) {
+    public static List<int> WithSortAndLinearScan(int[] array) {
         var uniqueInts = new List<int>();
 
         Array.Sort(array);

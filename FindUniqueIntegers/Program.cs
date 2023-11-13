@@ -16,8 +16,8 @@ public class Program {
         }
         
         var uniqueInts = new UniqueIntegers();
-        Console.WriteLine(string.Join(", ", uniqueInts.GetUniqueIntegers(arr)));
-        Console.WriteLine(string.Join(", ", uniqueInts.GetSortedUniqueIntegers(arr)));
+        Console.WriteLine(string.Join(", ", UniqueIntegers.WithDictionary(arr)));
+        Console.WriteLine(string.Join(", ", UniqueIntegers.WithSortAndLinearScan(arr)));
     }
 
 }

@@ -21,7 +21,7 @@ public class UnitTest1
         var uniqueInts = new UniqueIntegers();
 
         // Act
-        var list = uniqueInts.GetUniqueIntegers(Array.Empty<int>());
+        var list = UniqueIntegers.WithDictionary(Array.Empty<int>());
 
         // Assert
         Assert.Empty(list);
@@ -36,7 +36,7 @@ public class UnitTest1
         var uniqueInts = new UniqueIntegers();
 
         // Act
-        var list = uniqueInts.GetHashSetOfUniqueIntegers(array);
+        var list = UniqueIntegers.WithExceptingDuplicatesHashSet(array);
 
         // Assert
         Assert.Equal(expected, string.Join(",", list));
@@ -51,7 +51,7 @@ public class UnitTest1
         var uniqueInts = new UniqueIntegers();
 
         // Act
-        var list = uniqueInts.GetUniqueIntegers(array);
+        var list = UniqueIntegers.WithDictionary(array);
 
         // Assert
         Assert.Equal(expected, string.Join(",", list));
@@ -66,7 +66,7 @@ public class UnitTest1
         var uniqueInts = new UniqueIntegers();
 
         // Act
-        var list = uniqueInts.GetSortedUniqueIntegers(array);
+        var list = UniqueIntegers.WithSortAndLinearScan(array);
 
         // Assert
         Assert.Equal(expected, string.Join(",", list));
