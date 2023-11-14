@@ -7,21 +7,34 @@ BenchmarkRunner.Run<Benchmark>();
 [MemoryDiagnoser]
 public class Benchmark
 {
-    readonly int[] someNumbers = { 3, 9, 5, 943, 25, 578, 21, -4, 2, 9, 77, 21, 578, -443, 21};
+    private const int _size = 10_000;
+    private int[] _array = null!;
+
+    [GlobalSetup]
+    public void GlobalSetup() {
+        _array = Enumerable.Range(1, _size)
+                    .Select((value, index) => index == 5 ||
+                                              index == _size * 0.47 ||
+                                              index == _size - 1
+                                                ? index
+                                                : value)
+                    .ToArray();
+    }
+
 
     [Benchmark]
     public List<int> WithDictionary() {
-        return UniqueIntegers.WithDictionary(someNumbers);
+        return UniqueIntegers.WithDictionary(_array);
     }
 
     [Benchmark]
     public List<int> WithExceptingDuplicatesHashSet() {
-        return UniqueIntegers.WithExceptingDuplicatesHashSet(someNumbers);
+        return UniqueIntegers.WithExceptingDuplicatesHashSet(_array);
     }
 
     [Benchmark]
     public List<int> WithSortAndLinearScan() {
-        return UniqueIntegers.WithSortAndLinearScan(someNumbers);
+        return UniqueIntegers.WithSortAndLinearScan(_array);
     }
 
 }
