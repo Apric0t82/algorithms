@@ -4,12 +4,22 @@ public class UniqueIntegers
 {
     public static readonly IEnumerable<object[]> Data = new List<object[]> {
         new object[] { new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, new List<int> {1, 10, 7, 8, 45, -32, 9, 33} },
-        new object[] { new[] {17, 5, 25, 26, 0, 8}, new List<int> {17, 5, 25, 26, 0, 8} }
+        new object[] { new[] {17, 5, 25, 26, 0, 8}, new List<int> {17, 5, 25, 26, 0, 8} },
+        new object[] { new[] {1}, new List<int> {1} },
+        new object[] { new[] {0, 1, -1}, new List<int> {0, 1, -1} },
+        new object[] { new[] {2, 2}, new List<int> {} },
+        new object[] { new[] {3, 3, 3}, new List<int> {} },
+        new object[] { new[] {4, 4, 4, 4}, new List<int> {} }
     };
 
     public static readonly IEnumerable<object[]> SortedData = new List<object[]> {
         new object[] { new[] {1, 10, -4, 2, 7, 8, 45, -32, 2, 9, -4, 33}, new List<int> {-32, 1, 7, 8, 9, 10, 33, 45} },
-        new object[] { new[] {17, 5, 25, 26, 0, 8}, new List<int> {0, 5, 8, 17, 25, 26 } }
+        new object[] { new[] {17, 5, 25, 26, 0, 8}, new List<int> {0, 5, 8, 17, 25, 26 } },
+        new object[] { new[] {1}, new List<int> {1} },
+        new object[] { new[] {0, 1, -1}, new List<int> {-1, 0, 1} },
+        new object[] { new[] {2, 2}, new List<int> {} },
+        new object[] { new[] {3, 3, 3}, new List<int> {} },
+        new object[] { new[] {4, 4, 4, 4}, new List<int> {} }
     };
 
     public static List<int> WithDictionary(int[] array) {
